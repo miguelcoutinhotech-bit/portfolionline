@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <script>
+        (function () {
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- FONTES DO SITE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- HEADER -->
+     <header class="site-header">
+        <nav class="site-nav">
+            <a href="sobre_mim.html">SOBRE MIM</a>
+            <a href="habilidades.html">HABILIDADES</a>
+            <a href="projetos.html">PROJETOS</a>
+            <a href="contato.html">CONTATO</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo claro/escuro" type="button">
+            <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+            </svg>
+            <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5"/>
+                <path d="M12 2v2.5M12 19.5V22M4.4 4.4l1.8 1.8M17.8 17.8l1.8 1.8M2 12h2.5M19.5 12H22M4.4 19.6l1.8-1.8M17.8 6.2l1.8-1.8"/>
+            </svg>
+        </button>
+     </header>
+
+     <main class="site-main">
+        <div class="page-container">
+            <h1 class="page-title">// SOBRE MIM</h1>
+            <div class="about-grid reveal">
+                <p class="about-text">Prazer, me chamo <strong>Miguel</strong> e tenho 17 anos.
+                    Tenho grande interesse na área de tecnologia e web design.
+                    Atualmente curso o segundo ano do ensino médio no <strong>Colégio Cotemig</strong>,
+                    paralelamente, faço cursos na Udemy para aprofundar meus conhecimentos.
+                    Possuo base em HTML, CSS e JavaScript.</p>
+            </div>
+        </div>
+     </main>
+
+     <!-- FOOTER -->
+     <footer class="site-footer">
+        <p class="footer-name">Miguel Coutinho Aguiar</p>
+        <p class="footer-contact"> <strong>Telefone:</strong> +55 31 99452-0638 | <strong>Email:</strong> miguelcoutinho.tech@gmail.com</p>
+     </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

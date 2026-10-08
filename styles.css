@@ -1,0 +1,388 @@
+:root {
+    /* ========CONFIGURAÇÃO DE CORES======== */
+     /* ====MODO BRANCO==== */
+    --textBRANCO: #0e0f10;
+    --backgroundBRANCO: #bec5cf;
+    --primaryBRANCO: #294b6a;
+    --secundaryBRANCO: #6eabde;
+    --accentBRANCO: #1579cb;
+      /* ====MODO ESCURO==== */
+     --textESCURO: #EFF0F1;
+     --backgroundESCURO: #2F3640;
+     --primaryESCURO: #93b7d5;
+     --secundaryESCURO: #215D8F;
+     --accentESCURO: #3397e9;
+
+    /* ====VARIÁVEIS ATIVAS (padrão = modo escuro)==== */
+    --text: var(--textESCURO);
+    --background: var(--backgroundESCURO);
+    --primary: var(--primaryESCURO);
+    --secundary: var(--secundaryESCURO);
+    --accent: var(--accentESCURO);
+
+    /* ========TIPOGRAFIA======== */
+     /* ====FONTE DOS ESTILOS==== */
+    --font_heading1: "Space Mono", monospace;
+    --font_heading2: "Space Mono", monospace;
+    --font_body: "Space Grotesk", sans-serif;
+     /* ====TAMANHO DOS ESTILOS==== */
+    --size_heading1: 64px;
+    --size_heading2: 48px;
+    --size_body: 16px;
+}
+
+/* ====MODO CLARO ATIVADO VIA data-theme="light"==== */
+html[data-theme="light"] {
+    --text: var(--textBRANCO);
+    --background: var(--backgroundBRANCO);
+    --primary: var(--primaryBRANCO);
+    --secundary: var(--secundaryBRANCO);
+    --accent: var(--accentBRANCO);
+}
+
+/* ========CONFIGURAÇÃO BASE DO WEBSITE======== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--font_body);
+    font-size: var(--size_body);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-main {
+    flex: 1 1 auto;
+}
+
+a {
+    color: inherit;
+}
+
+/* ========HEADER======== */
+.site-header {
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 14px 16px;
+    flex-wrap: wrap;
+}
+
+.site-nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: var(--textESCURO);
+    font-family: var(--font_heading2);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: none;
+    border-radius: 50%;
+    color: var(--textESCURO);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+.theme-toggle .icon {
+    width: 18px;
+    height: 18px;
+    stroke: var(--textESCURO);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+html[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+html[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+/* ========CONTAINER DE PÁGINA (título comum)======== */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.page-title {
+    font-family: var(--font_heading1);
+    font-size: var(--size_heading2);
+    margin: 0 0 32px;
+}
+
+.page-title.typing::after {
+    content: "|";
+    margin-left: 2px;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ========PÁGINA "SOBRE MIM"======== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.about-text {
+    background-color: var(--secundary);
+    border: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 20px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-text strong {
+    color: var(--textESCURO);
+}
+
+/* ========PÁGINA "HABILIDADES"======== */
+.skills-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+    align-items: start;
+}
+
+.skills-label {
+    font-family: var(--font_heading2);
+    font-size: 18px;
+    margin: 0;
+}
+
+.skills-box {
+    background-color: var(--secundary);
+    border: 3px solid var(--accent);
+    border-radius: 4px;
+    margin: 0;
+    padding: 16px 24px;
+    line-height: 1.8;
+}
+
+@media (max-width: 560px) {
+    .skills-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========PÁGINA "PROJETOS"======== */
+.project-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.project-info,
+.project-link {
+    background-color: var(--secundary);
+    border: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.project-title {
+    margin: 0 0 8px;
+    font-family: var(--font_heading2);
+    font-size: 16px;
+}
+
+.project-info p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.project-link .link-label {
+    margin: 0 0 6px;
+    font-weight: bold;
+}
+
+.project-link a {
+    font-size: 14px;
+    word-break: break-all;
+}
+
+@media (max-width: 700px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========PÁGINA "CONTATO"======== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--accent);
+    border: 3px solid var(--secundary);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    font-weight: bold;
+    color: var(--textESCURO);
+}
+
+.form-field input,
+.form-field textarea {
+    background-color: var(--secundary);
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    padding: 8px;
+    font-family: var(--font_body);
+    font-size: 14px;
+    color: var(--textESCURO);
+    resize: vertical;
+}
+
+.submit-btn {
+    align-self: center;
+    background-color: var(--secundary);
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    padding: 8px 32px;
+    font-weight: bold;
+    color: var(--textESCURO);
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========MODAL DE CONFIRMAÇÃO======== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background-color: var(--secundary);
+    border: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 24px 32px;
+    max-width: 320px;
+    text-align: center;
+}
+
+.modal-box p {
+    margin: 0 0 16px;
+    color: var(--textESCURO);
+}
+
+.modal-close {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    color: var(--textESCURO);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ========ANIMAÇÃO AO ROLAR (SCROLL REVEAL)======== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========FOOTER======== */
+.site-footer {
+    background-color: var(--accent);
+    color: var(--textESCURO);
+    text-align: center;
+    padding: 16px;
+}
+
+.site-footer .footer-name {
+    margin: 0 0 4px;
+    font-family: var(--font_heading2);
+    font-weight: bold;
+     font-size: 24px;
+}
+
+.site-footer .footer-contact {
+    margin: 0;
+    font-size: 16px;
+}
